@@ -2,9 +2,8 @@ version: '3'
 services:
   rails:
     build: .
-    image: koyachan/rails-vim
+    image: koyachan/MyPotal
     volumes:
-      - e:\work\scripts\RailsTutorial:/usr/src/scripts
-      - e:\work\rails-vim:/usr/src/rails-vim
+      - e:\work\MyPortal:/usr/src/MyPortal
     ports:
       - '3000:3000'

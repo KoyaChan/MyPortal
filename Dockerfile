@@ -1,5 +1,5 @@
 FROM koyachan/ruby-vim
-ENV APP_ROOT /usr/src/scripts
+ENV APP_ROOT /usr/src/MyPortal
 WORKDIR $APP_ROOT
 
 COPY Gemfile $APP_ROOT
