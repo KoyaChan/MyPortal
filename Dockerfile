@@ -1,5 +1,6 @@
 FROM koyachan/ruby-vim
 ENV APP_ROOT /usr/src/MyPortal
+ENV LANG=ja_JP.UTF-8
 WORKDIR $APP_ROOT
 
 COPY Gemfile $APP_ROOT
