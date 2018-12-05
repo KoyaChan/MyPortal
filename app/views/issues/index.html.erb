@@ -1,0 +1,13 @@
+<table class="table table-striped">
+  <% @issues.each do |issue| %>
+    <tr>
+      <td><%= link_to issue.number, issue.salesforce_url %></td>
+      <td><%= issue.subject                              %></td>
+      <td><%= link_to 'ログ保存先', issue.logpath[0]     %></td>
+      <td><%= link_to 'ftp',        issue.ftp_url        %></td>
+      <td><%= issue.fix            %></td>
+    </tr>
+  <% end %>
+</table>
+
+      .
