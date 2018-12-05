@@ -10,7 +10,8 @@ RUN apt-get update
 RUN \
   apt-get install -y \
   node.js && \
-  bundle install
+  bundle install && \
+  bundle update
 
 EXPOSE 3000
 CMD bash
