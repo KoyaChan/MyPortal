@@ -19,8 +19,8 @@ class IssuesController < ApplicationController
   end
 
   def logpath
-    return [logfile_path_for(@issue)] unless @issue.nil?
-    [nil]
+    return logfile_path_for(@issue) unless @issue.nil?
+    nil
   end
 
   private
