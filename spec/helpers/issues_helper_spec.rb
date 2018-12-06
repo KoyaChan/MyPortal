@@ -11,5 +11,14 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe IssuesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'logfile_path_for' do
+    it 'makes a url to the same file name as the issue number' do
+      issue_number = 382_645
+      expected_path = 'file://E:\work\temp\temp\382645'
+
+      issue_mock = double('Issue')
+      allow(issue_mock).to receive(:number).and_return(issue_number)
+      expect(logfile_path_for(issue_mock)).to eq(expected_path)
+    end
+  end
 end

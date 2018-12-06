@@ -11,14 +11,15 @@ RSpec.describe IssuesController, type: :controller do
 
   describe "GET #edit" do
     it "returns http success" do
+      pending
       get :edit
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET #list" do
+  describe "GET #index" do
     it "returns http success" do
-      get :list
+      get :index
       expect(response).to have_http_status(:success)
     end
   end
