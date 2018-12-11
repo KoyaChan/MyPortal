@@ -6,6 +6,7 @@
       <td><%= link_to 'ログ保存先', issue.logpath        %></td>
       <td><%= link_to 'ftp',        issue.ftp_url        %></td>
       <td><%= issue.fix            %></td>
+      <td><%= link_to '編集',       "issues/#{issue.id}/edit"   %></td>
     </tr>
   <% end %>
 </table>

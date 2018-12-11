@@ -5,6 +5,7 @@ class IssuesController < ApplicationController
   end
 
   def edit
+    @issue = Issue.find(params[:id])
   end
 
   def index
