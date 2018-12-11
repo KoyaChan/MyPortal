@@ -14,8 +14,11 @@ class IssuesController < ApplicationController
   def create
     @issue = Issue.new(issue_params)
     @issue.logpath = logpath
-    @issue.save
-    redirect_to issues_path
+    if @issue.save
+      redirect_to issues_path
+    else
+      redirect_to new_issue_path
+    end
   end
 
   def logpath

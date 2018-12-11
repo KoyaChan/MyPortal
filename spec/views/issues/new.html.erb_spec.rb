@@ -7,7 +7,7 @@ end
 describe IssuesController, type: :feature do
   feature 'Issueの登録' do
     scenario '有効なissueを登録' do
-      number_to_input = '20000'
+      number_to_input = '20001'
       subject_to_input = 'バックアップデータについて'
 
       visit new_issue_url
@@ -17,7 +17,7 @@ describe IssuesController, type: :feature do
 
       expect { click_button '登録' }.to change { Issue.count }.by(1)
 
-      # expect(page).to have_content(subject_to_input)
+      expect(page).to have_content(subject_to_input)
     end
   end
 end
