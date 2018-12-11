@@ -11,8 +11,11 @@
   <body>
     <header class='navbar navbar-fixed-top navbar-inverse'>
       <div class='container'>
-        <%= link_to 'MyPortal', '#', class: 'navbar-brand' %>
+        <%= link_to 'MyPortal', issues_path, class: 'navbar-brand' %>
         <nav>
+          <ul class='nav navbar-nav navbar-left'>
+            <li><%= link_to '新規issue', new_issue_path, class: 'nav-item' %></li>
+          </ul>
           <ul class='nav navbar-nav navbar-right'>
             <li><%= link_to '案件リスト', issues_path, class: 'nav-item' %></li>
           </ul>
