@@ -1,10 +1,1 @@
-<%= bootstrap_form_with(model: @issue, local: true, class: 'col-xs-4') do |f|  %>
-  <%= render partial: 'shared/error_messages', object: @issue.errors %>
-  <%= f.number_field :number,         label: 'Issue番号'  %>
-  <%= f.text_area   :subject,         label: '件名'       %>
-  <%= f.text_field   :logpath,        label: 'ログ保存先' %>
-  <%= f.url_field    :salesforce_url, label: 'salesforce url' %>
-  <%= f.url_field    :ftp_url,        label: 'ftp'        %>
-  <%= f.text_field   :fix,            label: 'fix'        %>
-  <%= f.submit       '登録', class: 'btn btn-success'       %>
-<% end %>
+<%= render partial: 'form', object: @issue %>
