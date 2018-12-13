@@ -1,14 +1,20 @@
-<table class="table table-striped">
+<div id="issues_list">
+<ul>
   <% @issues.each do |issue| %>
-    <tr>
-      <td><%= link_to issue.number, issue.salesforce_url %></td>
-      <td><%= issue.subject                              %></td>
-      <td><%= link_to 'ログ保存先', issue.logpath        %></td>
-      <td><%= link_to 'ftp',        issue.ftp_url        %></td>
-      <td><%= issue.fix            %></td>
-      <td><%= link_to '編集',       "issues/#{issue.id}/edit"   %></td>
-    </tr>
+    <li>
+    <table class="table table-condensed table-hover">
+      <tr class="success">
+          <td><%= link_to issue.number, issue.salesforce_url %></td>
+          <td><%= issue.subject                              %></td>
+          <td><%= link_to 'ログ保存先', issue.logpath        %></td>
+          <td><%= link_to 'ftp',        issue.ftp_url        %></td>
+          <td><%= issue.fix                                  %></td>
+      </tr>
+      <tr>
+          <td><%= link_to '編集',       "issues/#{issue.id}/edit"   %></td>
+      </tr>
+    </table>
+    </li>
   <% end %>
-</table>
-
-      .
+</ul>
+</div>
