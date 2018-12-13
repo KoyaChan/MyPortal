@@ -4,6 +4,7 @@
     <li>
     <table class="table table-condensed table-hover">
       <tr class="success">
+        <td><i class="fas fa-angle-right"></i></td>
           <td><%= link_to issue.number, issue.salesforce_url %></td>
           <td><%= issue.subject                              %></td>
           <td><%= link_to 'ログ保存先', issue.logpath        %></td>
@@ -11,7 +12,14 @@
           <td><%= issue.fix                                  %></td>
       </tr>
       <tr>
-          <td><%= link_to '編集',       "issues/#{issue.id}/edit"   %></td>
+        <td>
+          <div style="display:block">
+            <table class="table table-condensed table-hover">
+              <tr>
+                <td><%= link_to '編集',       "issues/#{issue.id}/edit"   %></td>
+              </tr>
+            </table>
+          </div></td>
       </tr>
     </table>
     </li>
