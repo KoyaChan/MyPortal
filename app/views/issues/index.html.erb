@@ -1,27 +1,9 @@
 <div id="issues_list">
 <ul>
-  <% @issues.each do |issue| %>
+  <% @issues.each do |issue_item| %>
     <li>
-    <table class="table table-condensed table-hover">
-      <tr class="success">
-        <td><i class="fas fa-angle-right"></i></td>
-          <td><%= link_to issue.number, issue.salesforce_url %></td>
-          <td><%= issue.subject                              %></td>
-          <td><%= link_to 'ログ保存先', issue.logpath        %></td>
-          <td><%= link_to 'ftp',        issue.ftp_url        %></td>
-          <td><%= issue.fix                                  %></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:block">
-            <table class="table table-condensed table-hover">
-              <tr>
-                <td><%= link_to '編集',       "issues/#{issue.id}/edit"   %></td>
-              </tr>
-            </table>
-          </div></td>
-      </tr>
-    </table>
+      <% @issue_item = issue_item %>
+      <%= render 'issue_item', object: @issue_item %>
     </li>
   <% end %>
 </ul>

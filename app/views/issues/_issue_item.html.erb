@@ -1,0 +1,21 @@
+    <table class="table table-condensed table-hover">
+      <tr class="success">
+        <td><i class="fas fa-angle-right" style="color:blue"></i></td>
+          <td><%= link_to @issue_item.number, @issue_item.salesforce_url %></td>
+          <td><%= @issue_item.subject                              %></td>
+          <td><%= link_to 'ログ保存先', @issue_item.logpath        %></td>
+          <td><%= link_to 'ftp',        @issue_item.ftp_url        %></td>
+          <td><%= @issue_item.fix                                  %></td>
+      </tr>
+      <tr>
+        <td>
+          <div style="display:block">
+            <table class="table table-condensed table-hover">
+              <tr>
+                <td><%= link_to '編集',       "issues/#{@issue_item.id}/edit"   %></td>
+              </tr>
+            </table>
+          </div></td>
+      </tr>
+    </table>
+
