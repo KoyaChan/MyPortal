@@ -18,6 +18,7 @@ group :development, :test do
   gem 'byebug',       '9.0.6', platform: :mri
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'database_cleaner'
   gem 'rails-controller-testing'
   gem 'capybara-webkit'
 end
