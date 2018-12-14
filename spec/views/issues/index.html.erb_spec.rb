@@ -1,5 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe "issues/list.html.erb", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe 'issues/index', type: :feature do
+  feature 'Issueリストの表示' do
+    before(:each) do
+      @issue = create(:valid_issue)
+    end
+
+    scenario 'リストにIssueが表示される' do
+      visit issues_path
+      expect(page).to have_content(@issue.number)
+      expect(page).to have_content(@issue.subject)
+    end
+  end
 end
