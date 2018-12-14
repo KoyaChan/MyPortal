@@ -16,6 +16,14 @@ describe 'issues/edit', type: feature do
 
       expect(page).to have_field 'issue[number]', with: @issue.number.to_i.to_s
       expect(page).to have_field 'issue[subject]', with: @issue.subject
+
+      new_subject = '実際にはクラッシュではなくハング'
+      fill_in 'issue[subject]', with: new_subject
+
+      click_button '登録'
+      follow_redirect!
+
+      expect(page).to have_content(new_subject)
     end
   end
 end
