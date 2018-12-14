@@ -1,10 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "issues/new.html.erb", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
-
-describe IssuesController, type: :feature do
+describe 'issues/new', type: :feature do
   feature 'Issueの登録' do
     def input_issue(number_to_input, subject_to_input, expected_change)
       visit new_issue_url
