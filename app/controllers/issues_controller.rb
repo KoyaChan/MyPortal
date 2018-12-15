@@ -12,13 +12,26 @@ class IssuesController < ApplicationController
     @issues = Issue.all
   end
 
+  def show
+    redirect_to issues_path
+  end
+
   def create
     @issue = Issue.new(issue_params)
     @issue.logpath = logpath
     if @issue.save
       redirect_to issues_path
     else
-      render 'issues/new'
+      render 'new'
+    end
+  end
+
+  def update
+    @issue = Issue.find(params[:id])
+    if @issue.update_attributes(issue_params)
+      redirect_to issues_path
+    else
+      render 'edit'
     end
   end
 
