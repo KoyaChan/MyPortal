@@ -23,7 +23,7 @@ describe 'issues/edit', type: feature do
       expect(page).to have_content(new_subject)
     end
 
-    scenario 'Issueを無効な内容で編集' do
+    scenario 'Issueを無効な内容で編集後、有効な内容で修正' do
       visit issues_path
       expect(page).to have_content('編集')
 
@@ -34,10 +34,13 @@ describe 'issues/edit', type: feature do
 
       new_invalid_number = '20000'
       fill_in 'issue[number]', with: new_invalid_number
-
       click_button '登録'
-      expect(page).to have_field 'issue[number]'
-      expect(@issue.errors.count).to eq(1)
+      expect(page).to have_field 'issue[number]', with: new_invalid_number
+
+      new_valid_number = '20001'
+      fill_in 'issue[number]', with: new_valid_number
+      click_button '登録'
+      expect(page).to have_content(new_valid_number)
     end
   end
 end
