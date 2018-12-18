@@ -31,7 +31,7 @@ class IssuesController < ApplicationController
     if @issue.update_attributes(issue_params)
       redirect_to issues_path
     else
-      render 'edit'
+      render 'edit', action: :index
     end
   end
 
