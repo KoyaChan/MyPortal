@@ -2,4 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 this.expand = (id) ->
-  $("#issue_extra_#{id}").css('display', 'block')
+  expand = $("#check_#{id}").prop("checked")
+  to_be_expanded = $("#issue_extra_#{id}")
+  if expand
+    to_be_expanded.css('display', 'block')
+  else
+    to_be_expanded.css('display', 'none')
+
