@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
 /* universal */
 body {
@@ -54,5 +55,35 @@ body {
 
   .table td {
     border: none;
+  }
+}
+
+/* check box */
+label {
+  display: inline;
+  cursor: pointer;
+  font-size: 8;
+  color: green;
+}
+
+input[type=checkbox] {
+  display: none;
+
+  + label {
+    &:before {
+      display:inline-block;
+      width:16px;
+      font-family: 'FontAwesome';
+      content:"\f105";
+      font-size:14px;
+      color: blue;
+    }
+  }
+
+  &:checked + label {
+    &:before {
+      content: "\f107";
+      color: blue;
+    }
   }
 }

@@ -3,6 +3,7 @@
         <td>
           <% issue_id = @issue_item.id %>
           <%= check_box "issue", "expand", {id: "check_#{issue_id}", checked: false, onclick: "expand(#{issue_id})"}, true, false %>
+          <%= label "check", "#{issue_id}" %>
         </td>
           <td><%= link_to @issue_item.number, @issue_item.salesforce_url %></td>
           <td><%= @issue_item.subject                              %></td>
