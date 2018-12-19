@@ -1,8 +1,9 @@
     <table class="table table-condensed table-hover">
       <tr class="success">
         <td>
-          <%= button_tag type: 'button', onclick: "expand(#{@issue_item.id});" do %>
-            <%= content_tag :i, id: "issue_arrow_#{@issue_item.id}", class: "fas fa-angle-right", style: "color:blue" do %>
+          <% issue_id = @issue_item.id %>
+          <%= button_tag type: 'button', class: 'bg-success', style: "border: none", onclick: "expand(#{issue_id});" do %>
+            <%= content_tag :i, id: "issue_arrow_#{issue_id}", class: "fas fa-angle-right", style: "color:blue" do %>
             <% end %>
           <% end %>
         </td>
