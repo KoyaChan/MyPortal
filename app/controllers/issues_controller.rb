@@ -49,6 +49,7 @@ class IssuesController < ApplicationController
                                     :logpath,
                                     :salesforce_url,
                                     :ftp_url,
-                                    :fix)
+                                    :fix,
+                                    :memo)
     end
 end
