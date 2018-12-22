@@ -6,9 +6,13 @@
           <%= label "check", "#{issue_number}" %>
         </td>
 
-        <td><%= link_to 'salesforce', @issue_item.salesforce_url, target: "_blank" %></td>
-
         <td><%= @issue_item.subject                              %></td>
+
+        <td>
+          <%= link_to   @issue_item.salesforce_url, target: "_blank" do %>
+            <%= image_tag "salesforce.png", size: "20x20" %>
+          <% end %>
+        </td>
 
         <td>
           <%= link_to        "issues/#{@issue_item.id}/edit"   do %>
