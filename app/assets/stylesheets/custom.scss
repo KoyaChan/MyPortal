@@ -44,6 +44,7 @@ body {
     border: none;
     border-radius: 5px;
     padding: 0.5em 1em 0.5em 2.3em;
+    padding-left: 0px;
     position: relative;
    
     li {
@@ -56,6 +57,35 @@ body {
   .table td {
     border: none;
   }
+}
+
+/* issue_item */
+.issue_item_base {
+  display: grid;
+  grid-template-rows: 15px;
+  grid-template-columns: 100px 400px repeat(4, 25px) 100px;
+}
+
+.issue_number {
+    grid-row: 1;
+    grid-column: 1 / 2;
+    text-align: left;
+}
+
+.issue_subject {
+    grid-row: 1;
+    grid-column: 2 / 3;
+    text-align: left;
+}
+
+.issue_icon {
+    grid-row: 1;
+    text-align: left;
+    padding: 0, 0.1, 0, 0;
+}
+
+.issue_fix {
+    grid-row: 1;
 }
 
 /* check box */
