@@ -42,12 +42,10 @@
           </div>
         </td>
       </tr>
-      <tr>
+      <%= content_tag :tr, id: "issue_extra_#{issue_number}", style: "display:none" do %>
         <td>
-            <%= content_tag :div, id: "issue_extra_#{issue_number}", style: "display:none" do %>
-                  <%= simple_format(@issue_item.memo)                                     %>
-            <% end %>
+           <%= simple_format(@issue_item.memo)                                     %>
         </td>
-      </tr>
+      <% end %>
     </table>
 
