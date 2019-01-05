@@ -59,6 +59,10 @@ body {
     }
   }
 
+  .table {
+    margin: 0;
+  }
+
   .table td {
     border: none;
   }
@@ -85,8 +89,7 @@ body {
 
 .issue_icon {
     grid-row: 1;
-    text-align: left;
-    padding: 0, 0.1, 0, 0;
+    font-size: 1.2em;
 }
 
 .issue_extra_block {
