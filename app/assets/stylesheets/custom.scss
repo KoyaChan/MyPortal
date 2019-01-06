@@ -54,8 +54,8 @@ body {
                           "submit ...";
 
   grid-auto-rows:          repeat(6, 20px);
-  grid-template-columns:   100px 100px 50px 1fr;
-  grid-gap:                 3px;
+  grid-template-columns:   100px minmax(100px, 25%) 50px 1fr;
+  grid-gap:                 10px;
 
   & > .submit {
     grid-row: 6 / 7;
