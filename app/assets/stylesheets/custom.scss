@@ -36,10 +36,59 @@ body {
   }
 }
 
-.field_with_erros {
+.field_with_errors {
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
+  }
+}
+
+.issue-edit-form {
+  display: grid;
+
+  grid-template-areas:    "submit ..."
+                          "label number label subject"
+                          "label salesforce memo-label ."
+                          "label ftp        memo"
+                          "label logpath    memo"
+                          "label fix        memo";
+
+  grid-auto-rows:          repeat(6, 20px);
+  grid-template-columns:   100px 100px 50px 1fr;
+  grid-gap:                 3px;
+
+  & > .submit {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+  }
+
+  
+  & > label {
+    grid-column: 1 / 2;
+  }
+
+  & > input {
+    grid-column: 2 / 3;
+  }
+  
+  & > .subject-label {
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+  }
+
+  & > .subject {
+    grid-row: 2 / 3;
+    grid-column: 4 / 5;
+  }
+  
+  & > .memo-label {
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+  }
+
+  & > textarea.memo {
+    grid-row: 4 / 7;
+    grid-column: 3 / 5;
   }
 }
 

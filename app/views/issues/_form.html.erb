@@ -1,12 +1,28 @@
-<%= bootstrap_form_with(model: @issue, local: true, class: 'col-xs-4') do |f|  %>
-  <%= render partial: 'shared/error_messages', object: @issue.errors %>
-  <%= f.number_field :number,         label: 'Issue番号'  %>
-  <%= f.text_area   :subject,         label: '件名'       %>
-  <%= f.text_field   :logpath,        label: 'ログ保存先' %>
-  <%= f.url_field    :salesforce_url, label: 'salesforce url' %>
-  <%= f.url_field    :ftp_url,        label: 'ftp'        %>
-  <%= f.text_field   :fix,            label: 'fix'        %>
-  <%= f.text_area    :memo,           label: 'メモ'       %>
-  <%= f.submit       '登録', class: 'btn btn-success'       %>
+<%= render partial: 'shared/error_messages', object: @issue.errors %>
+
+<%= form_with(model: @issue, local: true, class: 'issue-edit-form') do |f|  %>
+
+    <%= f.label         'Issue番号' %>
+    <%= f.number_field :number %>
+
+    <%= f.label '件名',                 class: 'subject-label' %>
+    <%= f.text_field   :subject,         class: 'subject'  %>
+
+    <%= f.label 'salesforce' %>
+    <%= f.url_field    :salesforce_url %>
+
+    <%= f.label 'ftp' %>
+    <%= f.url_field    :ftp_url %>
+
+    <%= f.label 'ログ保存先' %>
+    <%= f.text_field   :logpath %>
+
+    <%= f.label 'メモ',                 class: 'memo-label' %>
+    <%= f.text_area    :memo,           class: 'memo' %>
+
+    <%= f.label 'fix'  %>
+    <%= f.text_field   :fix,            class: 'issue-edit-fix' %>
+
+    <%= f.submit        '登録',         class: 'btn btn-success submit'       %>
 <% end %>
 
