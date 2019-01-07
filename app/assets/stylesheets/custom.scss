@@ -51,6 +51,12 @@ body {
                           "label ftp        memo"
                           "label logpath    memo"
                           "label fix        memo"
+                          "                 memo"
+                          "                 memo"
+                          "                 memo"
+                          "                 memo"
+                          "                 memo"
+                          "                 memo"
                           "submit ..        memo";
 
   grid-auto-rows:          repeat(6, 20px);
@@ -58,7 +64,7 @@ body {
   grid-gap:                 10px;
 
   & > .submit {
-    grid-row: 6 / 7;
+    grid-row: 11 / 12;
     grid-column: 1 / 2;
   }
 
@@ -94,7 +100,7 @@ body {
   }
 
   & > textarea.memo {
-    grid-row: 3 / 6;
+    grid-row: 3 / 12;
     grid-column: 3 / 5;
     border: 1px solid skyblue;
     border-radius: 3px;
