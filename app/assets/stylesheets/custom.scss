@@ -51,7 +51,7 @@ body {
                           "label ftp        memo"
                           "label logpath    memo"
                           "label fix        memo"
-                          "submit ..        memo"
+                          "submit ..        memo";
 
   grid-auto-rows:          repeat(6, 20px);
   grid-template-columns:   100px minmax(100px, 25%) 50px 1fr;
