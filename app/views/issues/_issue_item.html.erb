@@ -1,55 +1,11 @@
-    <table class="table table-hover">
-      <tr class="success">
-        <td>
-          <div class="issue_item_base">
-            <div class="issue_number">
-              <% issue_number = @issue_item.number %>
-              <%= check_box "issue", "expand", {id: "check_#{issue_number}", checked: false, onclick: "expand(#{issue_number})"}, true, false %>
-              <%= label "check", "#{issue_number}" %>
-            </div>
+    <%= content_tag :table, class: 'table table-hover' do %>
+      <% issue_number = @issue_item.number %>
 
-            <div class="issue_subject">
-              <%= @issue_item.subject                              %>
-            </div>
-
-            <div class="issue_icon">
-              <%= link_to   @issue_item.salesforce_url, target: "_blank" do %>
-                <%= image_tag "salesforce.png", size: "20x20" %>
-              <% end %>
-            </div>
-
-            <div class="issue_icon">
-              <%= link_to        "issues/#{@issue_item.id}/edit"   do %>
-                <i class="fa fa-edit"></i>
-              <% end %>
-            </div>
-
-            <div class="issue_icon">
-              <%= link_to        @issue_item.logpath, target: "_blank" do %>
-                <i class="fa fa-folder-open"></i>
-              <% end %>
-            </div>
-
-            <div class="issue_icon">
-              <%= link_to      @issue_item.ftp_url, target: "_blank" do %>
-                <i class="fa fa-download"></i>
-              <% end %>
-            </div>
-
-          </div>
-        </td>
-      </tr>
-      <%= content_tag :tr, id: "issue_extra_#{issue_number}", style: "display:none" do %>
-        <td>
-          <div class="issue_extra_block">
-            <div class="issue_memo">
-              <%= simple_format(@issue_item.memo)                                     %>
-            </div>
-            <div class="issue_fix">
-              <%= @issue_item.fix                                  %>
-            </div>
-          </div>
-        </td>
+      <%= content_tag :tr, class: 'success' do %>
+        <%= render 'issue_item_base', object: @issue_item %>
       <% end %>
-    </table>
 
+      <%= content_tag :tr, id: "issue_extra_#{issue_number}", style: 'display:none' do %>
+        <%= render 'issue_extra_block', object: @issue_item %>
+      <% end %>
+    <% end %>
