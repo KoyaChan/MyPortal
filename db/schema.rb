@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181220075302) do
+ActiveRecord::Schema.define(version: 20190110082343) do
 
   create_table "issues", force: :cascade do |t|
     t.integer "number"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20181220075302) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "memo"
+    t.index [nil], name: "index_issues_on_issue_id"
+  end
+
+  create_table "todos", force: :cascade do |t|
+    t.string "status"
+    t.string "action"
+    t.integer "issue_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_todos_on_issue_id"
   end
 
 end
