@@ -5,10 +5,8 @@
         <%= render 'issue_item_base', object: @issue_item %>
       <% end %>
 
-      <%= content_tag :tr do %>
-        <% @todos = @issue_item.todos %>
-       <%= render @todos %>
-      <% end %>
+      <% @todos = @issue_item.todos %>
+      <%= render @todos %>
 
       <%= content_tag :tr, id: "issue_extra_#{issue_number}", style: 'display:none' do %>
         <%= render 'issue_extra_block', object: @issue_item %>
