@@ -1,0 +1,21 @@
+<tr class="todo-form">
+  <td>
+    <%= form_with(model: @todo, local: true) do |f| %>
+    <ol>
+      <li class="todo-status">
+        <%= f.text_field  :status %>
+      </li>
+  
+      <li class="todo-action">
+      <%= f.text_field  :action %>
+      </li>
+  
+      <li class="todo-submit">
+        <%= link_to method: :post do %>
+          <i class="fa fa-arrow-left"></i>
+        <% end %>
+      </li>
+    </ol>
+  <% end %>
+  </td>
+</tr>
