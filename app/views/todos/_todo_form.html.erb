@@ -1,17 +1,18 @@
 <tr class="todo-form">
   <td>
-    <%= form_with(model: @todo, local: true) do |f| %>
+    <% @todo = Todo.new %>
+    <%= form_with(model: [@issue_item, @todo], local: true) do |f| %>
     <ol>
       <li class="todo-status">
         <%= f.text_field  :status %>
       </li>
   
       <li class="todo-action">
-      <%= f.text_field  :action %>
+        <%= f.text_field  :action %>
       </li>
   
       <li class="todo-submit">
-        <%= link_to method: :post do %>
+        <%= link_to issue_todos_path(@issue_item, @todo, params: { issue: { id: @issue_item.id }, todo: { status: "ダミーs", action: "ダミーa" } }), method: :post do %>
           <i class="fa fa-arrow-left"></i>
         <% end %>
       </li>

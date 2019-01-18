@@ -5,7 +5,7 @@
         <%= render 'issue_item_base', object: @issue_item %>
       <% end %>
 
-      <%= render 'todos/todo_form' %>
+      <%= render 'todos/todo_form', object: @issue_item %>
 
       <% @todos = @issue_item.todos %>
       <%= render @todos %>
