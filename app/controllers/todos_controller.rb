@@ -1,15 +1,14 @@
 class TodosController < ApplicationController
   def create
-    todo = Todo.new(todo_params)
-    debugger
+    issue = Issue.find(params[:issue_id])
+    todo = issue.todos.new(todo_params)
     todo.save
     redirect_to issues_path
   end
 
   private
     def todo_params
-      params.require(:todo).permit(issue_id,
-                                   :status,
+      params.require(:todo).permit(:status,
                                    :action)
     end
 end

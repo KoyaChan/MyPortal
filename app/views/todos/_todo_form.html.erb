@@ -1,22 +1,21 @@
 <tr class="todo-form">
   <td>
-    <% @todo = Todo.new %>
-    <%= form_with(model: [@issue_item, @todo], local: true) do |f| %>
-    <ol>
-      <li class="todo-status">
-        <%= f.text_field  :status %>
-      </li>
+    <% @todo = @issue_item.todos.build %>
+    <% form_id = "addtodo" %>
+    <%= form_with(model: [@issue_item, @todo], local: true, html: { id: form_id }) do |f| %>
+      <ol>
+        <li class="todo-status">
+          <%= f.text_field  :status %>
+        </li>
   
-      <li class="todo-action">
-        <%= f.text_field  :action %>
-      </li>
+        <li class="todo-action">
+          <%= f.text_field  :action %>
+        </li>
   
-      <li class="todo-submit">
-        <%= link_to issue_todos_path(@issue_item, @todo, params: { issue: { id: @issue_item.id }, todo: { status: "ダミーs", action: "ダミーa" } }), method: :post do %>
-          <i class="fa fa-arrow-left"></i>
-        <% end %>
-      </li>
-    </ol>
-  <% end %>
+        <li class="todo-submit">
+          <%= f.submit value: "&#xf060;".html_safe, class: 'fas', style:'border:none;background-color:transparent;color:blue;text-decoration:none;' %>
+        </li>
+      </ol>
+    <% end %>
   </td>
 </tr>
