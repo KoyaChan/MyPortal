@@ -277,7 +277,17 @@ tr.todo-form {
     .todo-submit {
       grid-column: 3 / 4;
       grid-row: 1 / 2;
-    }
 
+      input {
+        border: none;
+        width: 16px;
+        height: 18px;
+        margin:  0.5px 0;
+        padding: 0 0;
+        background-color: yellow;
+        color: blue;
+        text-decoration: none;
+      }
+    }
   }
 }
