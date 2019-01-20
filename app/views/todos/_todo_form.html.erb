@@ -1,8 +1,6 @@
 <tr class="todo-form">
   <td>
-    <% @todo = @issue_item.todos.build %>
-    <% form_id = "addtodo" %>
-    <%= form_with(model: [@issue_item, @todo], local: true, html: { id: form_id }) do |f| %>
+    <%= form_with(model: [@issue_item, @issue_item.todos.new], local: true)  do |f| %>
       <ol>
         <li class="todo-status">
           <%= f.text_field  :status %>

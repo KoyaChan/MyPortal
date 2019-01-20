@@ -7,7 +7,7 @@
 
       <%= render 'todos/todo_form', object: @issue_item %>
 
-      <% @todos = @issue_item.todos %>
+      <% @todos = @issue_item.todos.select{|todo| !todo.id.nil?} %>
       <%= render @todos %>
 
       <%= content_tag :tr, id: "issue_extra_#{issue_number}", style: 'display:none' do %>
