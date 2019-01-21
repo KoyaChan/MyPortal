@@ -144,10 +144,11 @@ body {
 
 
 /* issue_item */
+$num_icons: 5;
 .issue-item-base {
   display: grid;
   grid-template-rows: 24px;
-  grid-template-columns: 100px 1fr repeat(4, 25px);
+  grid-template-columns: 100px 1fr repeat($num_icons, 25px);
 
   .issue-number {
     grid-row: 1;
@@ -189,7 +190,15 @@ body {
 }
 
 /* check box */
-label {
+@mixin fontawesome-icon($unicode, $color:blue) {
+  width: 16px;
+  font-family: 'FontAwesome';
+  content: $unicode;
+  font-size: 14px;
+  color: $color;
+}
+
+label.issue-number-label, label.todo-form-label {
   display: inline;
   cursor: pointer;
   font-size: 8;
@@ -199,21 +208,23 @@ label {
 input[type=checkbox] {
   display: none;
 
-  + label {
+  + label.issue-number-label {
     &:before {
       display:inline-block;
-      width:16px;
-      font-family: 'FontAwesome';
-      content:"\f105";
-      font-size:14px;
-      color: blue;
+      @include fontawesome-icon("\f105");
     }
   }
 
-  &:checked + label {
+  &:checked + label.issue-number-label {
     &:before {
-      content:"\f107";
-      color: blue;
+      @include fontawesome-icon("\f107");
+    }
+  }
+
+  + label.todo-form-label {
+    &:before {
+      display: inline-block;
+      @include fontawesome-icon("\f0ae", #2196f3);
     }
   }
 }
@@ -268,7 +279,9 @@ tr.todo:hover {
   text-decoration: line-through;
 }
 
-tr.todo-form {
+tr[class^="todo-form-"] {
+  display: none;
+
   @include todo-fields() {
     grid-template-columns: 1fr 1fr 1em;
 

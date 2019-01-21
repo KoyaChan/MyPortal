@@ -3,7 +3,7 @@
           <div class="issue-item-base">
             <div class="issue-number">
               <%= check_box "issue", "expand", {id: "check_#{issue_number}", checked: false, onclick: "expand(#{issue_number})"}, true, false %>
-              <%= label "check", "#{issue_number}" %>
+              <%= label "check", "#{issue_number}", class: "issue-number-label" %>
             </div>
 
             <div class="issue-subject">
@@ -32,6 +32,11 @@
               <%= link_to      @issue_item.ftp_url, target: '_blank' do %>
                 <i class="fa fa-download"></i>
               <% end %>
+            </div>
+
+            <div class="issue_icon">
+              <%= check_box "todo_form", "show", {id: "todo-form-#{issue_number}", checked: false, onclick: "show_todo_form(#{issue_number})"}, true, false %>
+              <%= label "todo-form", "", class: "todo-form-label" %>
             </div>
 
           </div>
