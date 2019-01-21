@@ -264,6 +264,10 @@ tr.todo {
   }
 }
 
+tr.todo:hover {
+  text-decoration: line-through;
+}
+
 tr.todo-form {
   @include todo-fields() {
     grid-template-columns: 1fr 1fr 1em;
