@@ -2,30 +2,11 @@
 <html>
   <head>
     <title>MyPortal</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/meta_tags' %>
   </head>
 
   <body>
-    <header class='navbar navbar-fixed-top navbar-inverse'>
-      <div class='container'>
-        <%= link_to 'MyPortal', issues_path, class: 'navbar-brand' %>
-        <nav>
-          <ul class='nav navbar-nav navbar-left'>
-            <li>
-              <%= link_to  new_issue_path, class: 'nav-item' do %>
-                <div class="nav-icon">
-                  <i class="fa fa-plus-square"></i>
-                </div>
-              <% end %>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <%= render 'layouts/header' %>
     <div class='container'>
       <%= yield %>
     </div>
