@@ -9,7 +9,9 @@ class IssuesController < ApplicationController
   end
 
   def index
-    @issues = Issue.all
+    @issues = Issue.select { |issue| !issue.archived }
+                   .sort_by(&:updated_at)
+                   .reverse
   end
 
   def show
@@ -43,13 +45,13 @@ class IssuesController < ApplicationController
   private
 
     def issue_params
-      params[:number] = params[:number].to_i
       params.require(:issue).permit(:number,
                                     :subject,
                                     :logpath,
                                     :salesforce_url,
                                     :ftp_url,
                                     :fix,
-                                    :memo)
+                                    :memo,
+                                    :archived)
     end
 end
