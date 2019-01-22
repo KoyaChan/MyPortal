@@ -279,7 +279,7 @@ tr.todo:hover {
   text-decoration: line-through;
 }
 
-tr[class^="todo-form-"] {
+tr[id^="todo-form-"] {
   display: none;
 
   @include todo-fields() {

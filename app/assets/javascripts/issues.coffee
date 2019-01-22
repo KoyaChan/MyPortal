@@ -9,7 +9,10 @@ this.expand = (id) ->
   else
     to_be_expanded.css('display', 'none')
 
-
-this.show_todo_form = (issue_number) ->
-  alert(issue_number)
-  $("tr.todo-form-#{issue_number}").css('display', 'block')
+this.show_todo_form = (id) ->
+  expand = $("#show-todo-form_#{id}").prop("checked")
+  to_be_expanded = $("#todo-form-#{id}")
+  if expand
+    to_be_expanded.css('display', 'block')
+  else
+    to_be_expanded.css('display', 'none')

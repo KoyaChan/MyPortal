@@ -35,8 +35,8 @@
             </div>
 
             <div class="issue_icon">
-              <%= check_box "todo_form", "show", {id: "todo-form-#{issue_number}", checked: false, onclick: "show_todo_form(#{issue_number})"}, true, false %>
-              <%= label "todo-form", "", class: "todo-form-label" %>
+              <%= check_box "todo_form", "show", {id: "show-todo-form_#{issue_number}", checked: false, onclick: "show_todo_form(#{issue_number})"}, true, false %>
+              <label for=<%="show-todo-form_#{issue_number}"%> class= "todo-form-label"></label>
             </div>
 
           </div>
