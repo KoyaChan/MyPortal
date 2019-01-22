@@ -1,6 +1,6 @@
 <tr class="todo">
   <td>
-    <%= link_to issue_todo_path(@issue_item, todo), method: :delete do %>
+    <%= link_to issue_todo_path(issue, todo), method: :delete do %>
     <ol>
       <li class="todo-status"><%= todo.status %></li>
       <li class="todo-action"><%= todo.action %></li>

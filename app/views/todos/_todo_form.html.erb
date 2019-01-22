@@ -1,6 +1,6 @@
-<%= content_tag :tr, id: "todo-form-#{@issue_item.number}" do %>
+<%= content_tag :tr, id: "todo-form-#{issue.number}" do %>
   <td>
-    <%= form_with(model: [@issue_item, @issue_item.todos.new], local: true)  do |f| %>
+    <%= form_with(model: [issue, issue.todos.new], local: true)  do |f| %>
       <ol>
         <li class="todo-status">
           <%= f.text_field  :status %>

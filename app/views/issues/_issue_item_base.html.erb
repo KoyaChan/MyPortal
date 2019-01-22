@@ -1,4 +1,4 @@
-        <% issue_number = @issue_item.number %>
+        <% issue_number = issue.number %>
         <td>
           <div class="issue-item-base">
             <div class="issue-number">
@@ -7,29 +7,29 @@
             </div>
 
             <div class="issue-subject">
-              <%= @issue_item.subject                              %>
+              <%= issue.subject                              %>
             </div>
 
             <div class="issue-icon">
-              <%= link_to   @issue_item.salesforce_url, target: '_blank' do %>
+              <%= link_to   issue.salesforce_url, target: '_blank' do %>
                 <%= image_tag 'salesforce.png', size: '20x20' %>
               <% end %>
             </div>
 
             <div class="issue-icon">
-              <%= link_to        "issues/#{@issue_item.id}/edit"   do %>
+              <%= link_to        "issues/#{issue.id}/edit"   do %>
                 <i class="fa fa-edit"></i>
               <% end %>
             </div>
 
             <div class="issue_icon">
-              <%= link_to        @issue_item.logpath, target: '_blank' do %>
+              <%= link_to        issue.logpath, target: '_blank' do %>
                 <i class="fa fa-folder-open"></i>
               <% end %>
             </div>
 
             <div class="issue_icon">
-              <%= link_to      @issue_item.ftp_url, target: '_blank' do %>
+              <%= link_to      issue.ftp_url, target: '_blank' do %>
                 <i class="fa fa-download"></i>
               <% end %>
             </div>

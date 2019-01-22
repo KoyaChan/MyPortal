@@ -1,10 +1,5 @@
 <div id="issues_list">
 <ul>
-  <% @issues.each do |issue_item| %>
-    <li>
-      <% @issue_item = issue_item %>
-      <%= render 'issue_item', object: @issue_item %>
-    </li>
-  <% end %>
+  <%= render @issues %>
 </ul>
 </div>
