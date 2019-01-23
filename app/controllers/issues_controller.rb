@@ -1,4 +1,6 @@
 class IssuesController < ApplicationController
+  include IssuesHelper
+
   def new
     issue_num = params[:number]
     @issue = Issue.find_by(number: issue_num)
@@ -14,7 +16,7 @@ class IssuesController < ApplicationController
 
   def index
     @issues = Issue.select { |issue| !issue.archived }
-                   .sort_by(&:updated_at)
+                   .sort_by { |issue| latest_todo(issue) }
                    .reverse
   end
 
