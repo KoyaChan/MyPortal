@@ -1,7 +1,12 @@
 class IssuesController < ApplicationController
   include IssuesHelper
   def new
+    issue_num = params[:number]
+    @issue = Issue.find_by(number: issue_num)
+    return if @issue
+
     @issue = Issue.new
+    @issue.number = issue_num
   end
 
   def edit
@@ -12,6 +17,10 @@ class IssuesController < ApplicationController
     @issues = Issue.select { |issue| !issue.archived }
                    .sort_by(&:updated_at)
                    .reverse
+  end
+
+  def search
+    redirect_to new_issue_path(number: params[:number])
   end
 
   def show
