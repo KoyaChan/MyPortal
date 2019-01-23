@@ -113,7 +113,6 @@ body {
 #issues_list {
   ul {
     border: none;
-    border-radius: 5px;
     padding: 0.5em 1em 0.5em 2.3em;
     padding-left: 0px;
     position: relative;
@@ -127,6 +126,7 @@ body {
   .table {
     margin: 0;
     padding: 0;
+    border-bottom: 1px solid green;
   }
 
   .table tr {
@@ -311,5 +311,16 @@ tr[id^="todo-form-"] {
         text-decoration: none;
       }
     }
+  }
+}
+/* search issue box */
+.search-issue-form {
+  margin-bottom: 15px;
+
+  input[type=number] {
+    outline: 0;
+    padding-left: 10px;
+    border-radius: 2px 0 0 2px;
+    background:#eee;
   }
 }
