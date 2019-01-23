@@ -1,5 +1,4 @@
 class IssuesController < ApplicationController
-  include IssuesHelper
   def new
     issue_num = params[:number]
     @issue = Issue.find_by(number: issue_num)
@@ -29,7 +28,6 @@ class IssuesController < ApplicationController
 
   def create
     @issue = Issue.new(issue_params)
-    @issue.logpath ||= logpath
     if @issue.save
       redirect_to issues_path
     else
@@ -44,11 +42,6 @@ class IssuesController < ApplicationController
     else
       render 'edit', action: :index
     end
-  end
-
-  def logpath
-    return logfile_path_for(@issue) unless @issue.nil?
-    nil
   end
 
   def destroy
