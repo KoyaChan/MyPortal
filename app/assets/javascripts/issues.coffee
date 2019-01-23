@@ -37,10 +37,10 @@ this.show_todo_form = (id) ->
   expander(checkbox_id, id_to_show)
 
 this.name_to_clipboard = (id) ->
-  link_string = $("#logpath-#{id}").prop("name")
+  name_string = $("#logpath-#{id}").prop("name")
   $('body').append("<textarea id='copy-text'></textarea>")
   copy_from = document.getElementById("copy-text")
-  copy_from.textContent = link_string
+  copy_from.textContent = name_string
   copy_from.select()
   document.execCommand('copy')
   document.body.removeChild(copy_from)
