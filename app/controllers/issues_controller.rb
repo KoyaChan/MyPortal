@@ -29,7 +29,7 @@ class IssuesController < ApplicationController
 
   def create
     @issue = Issue.new(issue_params)
-    @issue.logpath = logpath
+    @issue.logpath ||= logpath
     if @issue.save
       redirect_to issues_path
     else
