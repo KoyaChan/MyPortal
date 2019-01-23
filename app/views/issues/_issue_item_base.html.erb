@@ -23,7 +23,7 @@
               <i class="fa fa-edit"></i>
             <% end %>
 
-            <%= link_to   issue.logpath,        target: '_blank', class: 'issue-icon' do %>
+            <%= link_to   "", name: issue.logpath, id: "logpath-#{issue_number}", class: 'issue-icon', onclick: "name_to_clipboard(#{issue_number})" do %>
               <i class="fa fa-folder-open"></i>
             <% end %>
 
