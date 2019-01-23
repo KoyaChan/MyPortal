@@ -23,6 +23,7 @@
     <%= f.label 'fix'  %>
     <%= f.text_field   :fix,            class: 'issue-edit-fix' %>
 
+    <%= f.hidden_field :archived        %>
     <%= f.submit        '登録',         class: 'btn btn-success submit'       %>
 <% end %>
 

@@ -3,10 +3,10 @@ class IssuesController < ApplicationController
   def new
     issue_num = params[:number]
     @issue = Issue.find_by(number: issue_num)
-    return if @issue
 
-    @issue = Issue.new
+    @issue ||= Issue.new
     @issue.number = issue_num
+    @issue.archived = false
   end
 
   def edit
@@ -49,6 +49,13 @@ class IssuesController < ApplicationController
   def logpath
     return logfile_path_for(@issue) unless @issue.nil?
     nil
+  end
+
+  def destroy
+    issue = Issue.find(params[:id])
+    issue.archived = true
+    issue.save
+    redirect_to issues_path
   end
 
   private

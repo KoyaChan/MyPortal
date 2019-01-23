@@ -10,26 +10,30 @@
               <%= issue.subject                              %>
             </div>
 
-            <%= link_to   issue.salesforce_url, target: '_blank', class: 'issue_icon' do %>
-              <%= image_tag 'salesforce.png', size: '20x20' %>
-            <% end %>
-
-            <%= link_to   edit_issue_path(issue),                 class: 'issue_icon' do %>
-              <i class="fa fa-edit"></i>
-            <% end %>
-
-            <%= link_to   issue.logpath,        target: '_blank', class: 'issue_icon' do %>
-              <i class="fa fa-folder-open"></i>
-            <% end %>
-
-            <%= link_to   issue.ftp_url,        target: '_blank', class: 'issus_icon' do %>
-              <i class="fa fa-download"></i>
-            <% end %>
-
-            <div class="issue_icon">
+            <div class="issue-icon">
               <%= check_box "todo_form", "show", {id: "show-todo-form_#{issue_number}", checked: false, onclick: "show_todo_form(#{issue_number})"}, true, false %>
               <label for=<%="show-todo-form_#{issue_number}"%> class= "todo-form-label"></label>
             </div>
+
+            <%= link_to   issue.salesforce_url, target: '_blank', class: 'issue-icon' do %>
+              <%= image_tag 'salesforce.png', size: '20x20' %>
+            <% end %>
+
+            <%= link_to   edit_issue_path(issue),                 class: 'issue-icon' do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+
+            <%= link_to   issue.logpath,        target: '_blank', class: 'issue-icon' do %>
+              <i class="fa fa-folder-open"></i>
+            <% end %>
+
+            <%= link_to   issue.ftp_url,        target: '_blank', class: 'issue-icon' do %>
+              <i class="fa fa-download"></i>
+            <% end %>
+
+            <%= link_to   issue,                method: :delete,  class: 'issue-icon' do%>
+              <i class="fa fa-trash-alt"></i>
+            <% end %>
 
           </div>
         </td>
