@@ -16,7 +16,7 @@ class IssuesController < ApplicationController
 
   def index
     @issues = Issue.select { |issue| !issue.archived }
-                   .sort_by { |issue| latest_todo(issue) }
+                   .sort_by { |issue| latest_todo(issue).updated_at }
                    .reverse
   end
 

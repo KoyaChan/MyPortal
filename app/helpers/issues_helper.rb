@@ -6,6 +6,8 @@ module IssuesHelper
   end
 
   def latest_todo(issue)
-    issue.todos.max_by(&:updated_at)
+    todo = issue.todos.max_by(&:updated_at)
+    return Todo.new(updated_at: Time.zone.at(0)) if todo.nil?
+    todo
   end
 end
