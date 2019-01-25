@@ -3,13 +3,23 @@
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
 /* universal */
-body {
-  padding-top: 100px;
+html {
+  height: 100%;
+  body {
+    height: 100%;
+    padding-top: 70px;
+  
+    .main-container {
+      background-color: #fcf3ed;
+      height: auto;
+      min-height: 100%;
+    }
+  }
 }
 
 /* header */
 .navbar {
-  height: 20px !important;
+  min-height: 70px !important;
 }
 
 .navbar-brand {
@@ -45,6 +55,7 @@ body {
 
 .issue-edit-form {
   display: grid;
+  padding: 15px;
 
   grid-template-areas:    "label number label subject"
                           "label salesforce memo-label ."
@@ -111,6 +122,8 @@ body {
 
 /* issues list */
 #issues_list {
+  padding-top: 5px;
+  margin: 0 50px;
   ul {
     border: none;
     padding: 0.5em 1em 0.5em 2.3em;
