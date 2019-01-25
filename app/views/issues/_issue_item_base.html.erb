@@ -23,6 +23,11 @@
               <i class="fa fa-edit"></i>
             <% end %>
 
+            <% memopath_link_id = "memopath-#{issue_number}" %>
+            <%= link_to   "", name: "#", id: "#{memopath_link_id}", class: 'issue-icon', onclick: "name_to_clipboard(\"#{memopath_link_id}\")" do %>
+              <i class="fa fa-eye"></i>
+            <% end %>
+
             <% logpath_link_id = "logpath-#{issue_number}" %>
             <%= link_to   "", name: issue.logpath, id: "#{logpath_link_id}", class: 'issue-icon', onclick: "name_to_clipboard(\"#{logpath_link_id}\")" do %>
               <i class="fa fa-folder-open"></i>
