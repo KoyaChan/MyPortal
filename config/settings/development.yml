@@ -1,2 +1,3 @@
 default_path:
   logfile_path: 'file://E:\work\temp\temp'
+  memo_path:    'file://E:\調査メモ'
