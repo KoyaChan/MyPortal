@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20190122052817) do
     t.datetime "updated_at", null: false
     t.string "memo"
     t.boolean "archived"
+    t.index [nil], name: "index_issues_on_issue_id"
   end
 
   create_table "todos", force: :cascade do |t|
