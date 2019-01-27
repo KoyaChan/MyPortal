@@ -7,11 +7,7 @@ describe 'issues/edit', type: feature do
     end
 
     scenario 'Issueを有効な内容で編集' do
-      visit issues_path
-      expect(page).to have_content('編集')
-
-      click_link '編集'
-
+      visit edit_issue_path(@issue.id)
       expect(page).to have_field 'issue[number]', with: @issue.number.to_i.to_s
       expect(page).to have_field 'issue[subject]', with: @issue.subject
 
@@ -24,11 +20,7 @@ describe 'issues/edit', type: feature do
     end
 
     scenario 'Issueを無効な内容で編集後、有効な内容で修正' do
-      visit issues_path
-      expect(page).to have_content('編集')
-
-      click_link '編集'
-
+      visit edit_issue_path(@issue.id)
       expect(page).to have_field 'issue[number]', with: @issue.number.to_i.to_s
       expect(page).to have_field 'issue[subject]', with: @issue.subject
 
