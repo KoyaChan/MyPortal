@@ -55,6 +55,7 @@ class IssuesController < ApplicationController
       params.require(:issue).permit(:number,
                                     :subject,
                                     :logpath,
+                                    :memopath,
                                     :salesforce_url,
                                     :ftp_url,
                                     :fix,

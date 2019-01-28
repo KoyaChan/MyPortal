@@ -61,6 +61,7 @@ html {
                           "label salesforce memo-label ."
                           "label ftp        memo"
                           "label logpath    memo"
+                          "label memopath   memo"
                           "label fix        memo"
                           "                 memo"
                           "                 memo"
@@ -70,7 +71,7 @@ html {
                           "                 memo"
                           "submit ..        memo";
 
-  grid-auto-rows:          repeat(6, 20px);
+  grid-auto-rows:          repeat(7, 20px);
   grid-template-columns:   100px minmax(100px, 25%) 50px 1fr;
   grid-gap:                 10px;
 

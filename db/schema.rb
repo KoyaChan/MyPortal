@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190122052817) do
+ActiveRecord::Schema.define(version: 20190128085953) do
 
   create_table "issues", force: :cascade do |t|
     t.integer "number"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20190122052817) do
     t.datetime "updated_at", null: false
     t.string "memo"
     t.boolean "archived"
+    t.string "memopath"
     t.index [nil], name: "index_issues_on_issue_id"
   end
 

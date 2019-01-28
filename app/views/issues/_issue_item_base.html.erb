@@ -24,7 +24,7 @@
             <% end %>
 
             <% memopath_link_id = "memopath-#{issue_number}" %>
-            <%= link_to   "", name: "#", id: "#{memopath_link_id}", class: 'issue-icon', onclick: "name_to_clipboard(\"#{memopath_link_id}\")" do %>
+            <%= link_to   "", name: issue.memopath, id: "#{memopath_link_id}", class: 'issue-icon', onclick: "name_to_clipboard(\"#{memopath_link_id}\")" do %>
               <i class="fa fa-eye"></i>
             <% end %>
 

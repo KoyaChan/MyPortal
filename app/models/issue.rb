@@ -9,7 +9,7 @@ class Issue < ApplicationRecord
 
   validates :subject, presence: true
 
-  before_validation :apply_logpath
+  before_validation :apply_logpath, :apply_memopath
 
   class << self
     def sorted_all
@@ -20,9 +20,16 @@ class Issue < ApplicationRecord
   end
 
   def apply_logpath
-    return unless logpath.empty?
+    return unless logpath.nil? || logpath.empty?
     logfile_path = Settings.default_path.logfile_path + '\\' + issue.number.to_s
     self.logpath = logfile_path
+  end
+
+  def apply_memopath
+    return unless memopath.nil? || memopath.empty?
+    filename = "SF#{number} #{subject}.md"
+    memo_path = Settings.default_path.memo_path + '\\' + filename
+    self.memopath = memo_path
   end
 
   def latest_todo
