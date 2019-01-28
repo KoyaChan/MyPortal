@@ -20,7 +20,9 @@ class Issue < ApplicationRecord
   end
 
   def apply_logpath
-    self.logpath = logfile_path_for(self) if logpath.empty?
+    return unless logpath.empty?
+    logfile_path = Settings.default_path.logfile_path + '\\' + issue.number.to_s
+    self.logpath = logfile_path
   end
 
   def latest_todo

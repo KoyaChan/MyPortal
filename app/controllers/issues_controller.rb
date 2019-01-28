@@ -1,6 +1,4 @@
 class IssuesController < ApplicationController
-  include IssuesHelper
-
   def new
     issue_num = params[:number]
     @issue = Issue.find_by(number: issue_num)
