@@ -19,19 +19,6 @@ class Issue < ApplicationRecord
     end
   end
 
-  def apply_logpath
-    return unless logpath.nil? || logpath.empty?
-    logfile_path = Settings.default_path.logfile_path + '\\' + issue.number.to_s
-    self.logpath = logfile_path
-  end
-
-  def apply_memopath
-    return unless memopath.nil? || memopath.empty?
-    filename = "SF#{number} #{subject}.md"
-    memo_path = Settings.default_path.memo_path + '\\' + filename
-    self.memopath = memo_path
-  end
-
   def latest_todo
     todo = todos.max_by(&:updated_at)
     return Todo.new(updated_at: Time.zone.at(0)) if todo.nil?
@@ -42,5 +29,28 @@ class Issue < ApplicationRecord
     todos.reject { |todo| todo.id.nil? }
          .sort_by(&:updated_at)
          .reverse
+  end
+
+  private
+
+  def apply_logpath
+    if logpath.nil? || logpath.empty?
+      self.logpath = Settings.default_path.logfile_path + '\\' + number.to_s
+    end
+    self.logpath = add_prefix(logpath)
+  end
+
+  def apply_memopath
+    if memopath.nil? || memopath.empty?
+      filename = "SF#{number} #{subject}.md"
+      self.memopath = Settings.default_path.memo_path + '\\' + filename
+    end
+    self.memopath = add_prefix(memopath)
+  end
+
+  def add_prefix(path)
+    prefix = 'File://'
+    return path if path =~ /#{prefix}/
+    prefix + path
   end
 end
