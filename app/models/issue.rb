@@ -50,7 +50,7 @@ class Issue < ApplicationRecord
 
   def add_prefix(path)
     prefix = 'File://'
-    return path if path =~ /#{prefix}/
+    return path if path =~ /#{prefix}/i
     prefix + path
   end
 end
