@@ -6,13 +6,13 @@
         <%= render 'issue_item_base', issue: issue %>
       <% end %>
 
+      <%= content_tag :tr, id: "issue_extra_#{issue_number}", style: 'display:none' do %>
+        <%= render 'issue_extra_block', issue: issue %>
+      <% end %>
+
       <%= render 'todos/todo_form',   issue: issue %>
 
       <% @todos = issue.all_todos_sorted %>
       <%= render @todos, issue: issue %>
-
-      <%= content_tag :tr, id: "issue_extra_#{issue_number}", style: 'display:none' do %>
-        <%= render 'issue_extra_block', issue: issue %>
-      <% end %>
     <% end %>
   </li>
