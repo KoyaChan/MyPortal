@@ -27,6 +27,7 @@ class IssuesController < ApplicationController
   def create
     @issue = Issue.new(issue_params)
     if @issue.save
+      @issue.todos.new(status: '新規', action: nil).save
       redirect_to issues_path
     else
       render 'new'
