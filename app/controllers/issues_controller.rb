@@ -24,7 +24,16 @@ class IssuesController < ApplicationController
     redirect_to issues_path
   end
 
+  def canceled
+    params[:cancel]
+  end
+
   def create
+    if canceled
+      redirect_to issues_path
+      return
+    end
+
     @issue = Issue.new(issue_params)
     if @issue.save
       @issue.todos.new(status: '新規', action: nil).save
@@ -35,6 +44,11 @@ class IssuesController < ApplicationController
   end
 
   def update
+    if canceled
+      redirect_to issues_path
+      return
+    end
+
     @issue = Issue.find(params[:id])
     if @issue.update_attributes(issue_params)
       redirect_to issues_path

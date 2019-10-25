@@ -80,6 +80,11 @@ html {
     grid-column: 1 / 2;
   }
 
+  & > .cancel {
+    grid-row: 12 / 13;
+    grid-column: 1 / 2;
+  }
+
   
   & > label {
     grid-column: 1 / 2;
@@ -171,6 +176,7 @@ $num_icons: 7;
   }
 
   .issue-subject {
+      color:black;
       grid-row: 1;
       grid-column: 2 / 3;
       text-align: left;

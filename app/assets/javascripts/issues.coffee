@@ -46,6 +46,8 @@ this.name_to_clipboard = (id) ->
   document.execCommand('copy')
   document.body.removeChild(copy_from)
 
+this.edit_issue = (number) ->
+  alert(number)
 
 
 
