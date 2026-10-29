@@ -7,9 +7,15 @@ class Issue < ApplicationRecord
                      numericality: { only_integer: true, greater_than: 20_000, less_than: 100_000_000 },
                      uniqueness: true
 
+  validates :cft_number, numericality: { only_integer: true, greater_than: 0 },
+                         uniqueness: true,
+                         allow_nil: true
+
   validates :subject, presence: true
 
-  before_validation :apply_logpath, :apply_memopath
+  before_validation :apply_logpath, :apply_memopath, :apply_jira_url
+
+  JIRA_CFT_BASE_URL = 'https://arcservecloud.atlassian.net/browse/CFT-'.freeze
 
   class << self
     def sorted_all
@@ -38,6 +44,12 @@ class Issue < ApplicationRecord
       self.logpath = Settings.default_path.logfile_path + '\\' + number.to_s
     end
     self.logpath = add_prefix(logpath)
+  end
+
+  def apply_jira_url
+    return if cft_number.blank?
+    return if jira_url.present? && !cft_number_changed?
+    self.jira_url = JIRA_CFT_BASE_URL + cft_number.to_s
   end
 
   def apply_memopath

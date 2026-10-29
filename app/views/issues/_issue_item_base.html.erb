@@ -19,6 +19,17 @@
               <%= image_tag 'salesforce.png', size: '20x20' %>
             <% end %>
 
+            <% jira_enabled = issue.number.present? && issue.cft_number.present? %>
+            <% if jira_enabled %>
+              <%= link_to   issue.jira_url,     target: '_blank', class: 'issue-icon' do %>
+                <%= image_tag 'Jira.png', size: '20x20', alt: 'JIRA' %>
+              <% end %>
+            <% else %>
+              <span class="issue-icon issue-icon-disabled">
+                <%= image_tag 'Jira.png', size: '20x20', alt: 'JIRA' %>
+              </span>
+            <% end %>
+
             <%= link_to   edit_issue_path(issue),                 class: 'issue-icon' do %>
               <i class="fa fa-edit"></i>
             <% end %>

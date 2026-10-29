@@ -335,12 +335,30 @@ tr[id^="todo-form-"] {
 }
 /* search issue box */
 .search-issue-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 15px;
 
   input[type=number] {
     outline: 0;
     padding-left: 10px;
-    border-radius: 2px 0 0 2px;
+    border-radius: 2px;
     background:#eee;
   }
+
+  .cft-prefix {
+    margin: 0 4px;
+    white-space: nowrap;
+  }
+
+  input[type=submit] {
+    margin-left: 6px;
+  }
+}
+
+/* disabled icon (e.g. JIRA when CFT number is missing) */
+.issue-icon-disabled {
+  opacity: 0.3;
+  pointer-events: none;
 }

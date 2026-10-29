@@ -8,7 +8,18 @@ RSpec.describe IssuesController, type: :controller do
       expect(response).to redirect_to(new_issue_path(number: '123456'))
     end
 
+    it 'CFT番号をセットして登録画面へリダイレクトする' do
+      post :search, params: { cft_number: '4567' }
+      expect(response).to redirect_to(new_issue_path(cft_number: '4567'))
+    end
+
     it '既存のissueが見つかったら、それを登録画面に表示する' do
+    end
+
+    it 'CFT番号で既存のissueを見つけて登録画面に表示する' do
+      issue = Issue.create!(number: 521373, subject: 'test', cft_number: 4567)
+      get :new, params: { cft_number: '4567' }
+      expect(assigns(:issue)).to eq(issue)
     end
   end
 

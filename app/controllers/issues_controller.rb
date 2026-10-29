@@ -1,10 +1,14 @@
 class IssuesController < ApplicationController
   def new
     issue_num = params[:number]
-    @issue = Issue.find_by(number: issue_num)
+    cft_num = params[:cft_number]
 
+    @issue = Issue.find_by(number: issue_num) if issue_num.present?
+    @issue ||= Issue.find_by(cft_number: cft_num) if cft_num.present?
     @issue ||= Issue.new
-    @issue.number = issue_num
+
+    @issue.number = issue_num if issue_num.present?
+    @issue.cft_number = cft_num if cft_num.present?
     @issue.archived = false
   end
 
@@ -17,7 +21,7 @@ class IssuesController < ApplicationController
   end
 
   def search
-    redirect_to new_issue_path(number: params[:number])
+    redirect_to new_issue_path(number: params[:number], cft_number: params[:cft_number])
   end
 
   def show
@@ -68,10 +72,12 @@ class IssuesController < ApplicationController
 
     def issue_params
       params.require(:issue).permit(:number,
+                                    :cft_number,
                                     :subject,
                                     :logpath,
                                     :memopath,
                                     :salesforce_url,
+                                    :jira_url,
                                     :ftp_url,
                                     :fix,
                                     :memo,

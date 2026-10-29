@@ -5,11 +5,17 @@
     <%= f.label         'Issue番号' %>
     <%= f.number_field :number %>
 
+    <%= f.label 'CFT番号' %>
+    <%= f.number_field :cft_number %>
+
     <%= f.label '件名',                 class: 'subject-label' %>
     <%= f.text_field   :subject,         class: 'subject'  %>
 
     <%= f.label 'salesforce' %>
     <%= f.url_field    :salesforce_url %>
+
+    <%= f.label 'jira' %>
+    <%= f.url_field    :jira_url %>
 
     <%= f.label 'ftp' %>
     <%= f.url_field    :ftp_url %>
