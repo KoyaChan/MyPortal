@@ -181,6 +181,12 @@ $num_icons: 7;
       grid-column: 2 / 3;
       text-align: left;
   }
+
+  .issue-cft-number {
+      margin-right: 0.5em;
+      color: #555;
+      white-space: nowrap;
+  }
   
   .issue-icon {
       grid-row: 1;
