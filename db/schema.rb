@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190128085953) do
+ActiveRecord::Schema.define(version: 20261029110000) do
 
   create_table "issues", force: :cascade do |t|
     t.integer "number"
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20190128085953) do
     t.string "memo"
     t.boolean "archived"
     t.string "memopath"
+    t.integer "cft_number"
+    t.string "jira_url"
+    t.index ["cft_number"], name: "index_issues_on_cft_number", unique: true
     t.index [nil], name: "index_issues_on_issue_id"
   end
 

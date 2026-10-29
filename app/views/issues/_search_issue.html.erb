@@ -1,3 +1,6 @@
-<%= form_with url: issues_search_path, class: "search-issue-form" do |f| %>
+<%= form_with url: issues_search_path, local: true, class: "search-issue-form" do |f| %>
   <%= f.number_field :number, placeholder: "issue番号"  %>
+  <span class="cft-prefix">: CFT-</span>
+  <%= f.number_field :cft_number, placeholder: "CFT番号" %>
+  <%= f.submit '検索' %>
 <% end %>
