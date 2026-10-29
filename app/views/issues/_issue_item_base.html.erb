@@ -7,6 +7,9 @@
             </div>
 
             <div class="issue-subject">
+              <% if issue.cft_number.present? %>
+                <span class="issue-cft-number">CFT-<%= issue.cft_number %></span>
+              <% end %>
               <%= issue.subject                              %>
             </div>
 
